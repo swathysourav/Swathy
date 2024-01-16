@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block body %}
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    Online Movie Store
+    <a class="btn btn-warning" href="{% url 'dpromovieapp:add_movie' %}">ADD</a>
+  </a>
+</nav>
+<div class="container">
+    <div class=" row">
+        {% for i in movie_list %}
+        <div class="col-md-3">
+            <div style="padding-top: 20px class="card" style="width: 18rem;">
+  <img src="{{i.img.url}}" class="card-img-top" alt="..." width="200px" height="200px">
+  <div style="margin-bottom: 20px class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+<!--    <p class="card-text">{{i.des}}</p>-->
+    <a href="{% url 'dpromovieapp:detail' i.id %}" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+        </div>
+         {% endfor %}
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
